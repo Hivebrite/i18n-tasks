@@ -29,6 +29,8 @@ module I18n::Tasks::KeyPatternMatching
 
   def key_pattern_re_body(key_pattern)
     key_pattern
+      .gsub(/\[/, '\[')
+      .gsub(/\]/, '\]')
       .gsub(/\./, '\.')
       .gsub(/\*/, '.*')
       .gsub(/:/, '(?<=^|\.)[^.]+?(?=\.|$)')
